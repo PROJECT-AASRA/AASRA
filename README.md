@@ -87,11 +87,13 @@ D:\Aasra\AASRA\
 
 ## 🚀 Key Modules & Endpoints
 
-### 1. Base & Health Endpoints
-- `GET /` — API status and pilot summary statistics.
+### 1. Base, Web Portal & Dashboard Endpoints
+- `GET /` (or `/home`) — AASRA Interactive Landing Page & State/District Selector.
+- `GET /dashboard` (or `/assessment`, `/console`) — Live AI Relocation & Multi-Hazard Assessment Dashboard.
+- `GET /map` — Fullscreen Interactive Leaflet GIS Map with hazard telemetry pins.
+- `GET /api` — Machine-readable API status, platform metadata, and pilot summary metrics.
 - `GET /health` — Health check probe (`{"status": "healthy", "pilot": "Uttarakhand"}`).
-- `GET /states` — Active and upcoming pilot directory.
-- `GET /map` — Interactive Leaflet GIS map with hazard layers and risk pins.
+- `GET /states` — Active and upcoming disaster resilience pilot directory.
 
 ### 2. State Regional Hazard Intelligence
 - `GET /uttarakhand/summary` — Regional telemetry summary (shelters, capacities, disaster history).
@@ -123,8 +125,11 @@ D:\Aasra\AASRA\
 
 ### 7. GIS & Map Layers (`/gis`)
 - Serves RFC 7946 GeoJSON FeatureCollections:
-  - `/gis/shelters`, `/gis/households`, `/gis/districts`, `/gis/state-boundary`
-  - `/gis/flood-zones`, `/gis/rivers`, `/gis/landslides`, `/gis/earthquakes`, `/gis/rainfall`
+  - `/gis/india-country-boundary` — National boundary vector polygon of India (white dashed line).
+  - `/gis/india-states` — All 35 Indian States & Union Territories with interactive hover tooltips.
+  - `/gis/districts` — Uttarakhand district boundaries with live risk scores.
+  - `/gis/state-boundary` — Active pilot state boundary.
+  - `/gis/shelters`, `/gis/households`, `/gis/flood-zones`, `/gis/rivers`, `/gis/landslides`, `/gis/rainfall`
 
 ---
 
@@ -176,12 +181,26 @@ python app/init_db.py
 python app/seed_db.py
 ```
 
-### 3. Start the Backend Server
+### 3. Start the Backend Server (Local / Network)
 ```powershell
-python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-- **Interactive GIS Map**: [http://127.0.0.1:8000/map](http://127.0.0.1:8000/map)
-- **Interactive Swagger Documentation**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- **ReDoc API Documentation**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+- **AASRA Landing Portal**: [http://localhost:8000/](http://localhost:8000/)
+- **Live Assessment & GIS Dashboard**: [http://localhost:8000/dashboard](http://localhost:8000/dashboard)
+- **Interactive GIS Map**: [http://localhost:8000/map](http://localhost:8000/map)
+- **Interactive Swagger Documentation**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **ReDoc API Documentation**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+
+---
+
+## ☁️ Cloud Deployment (Render / Railway)
+
+1. Connect this repository to **[Render](https://render.com/)** as a **New Web Service**.
+2. Settings:
+   - **Environment:** Python 3
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - **Instance Type:** Free ($0/month)
+
 
