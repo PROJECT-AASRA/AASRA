@@ -1,0 +1,154 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-09-11T19:41:09Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/891175139",
+        "amenity": "fire_station",
+        "building": "yes",
+        "name": "Haldwani Fire Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5150005,
+          29.1948518
+        ]
+      },
+      "id": "way/891175139"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1194323859",
+        "amenity": "fire_station",
+        "name": "Fire Station Rudrapur",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3908769,
+          28.9754588
+        ]
+      },
+      "id": "way/1194323859"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6115840284",
+        "amenity": "fire_station",
+        "check_date": "2026-06-13",
+        "name": "Fire Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0188228,
+          30.3450796
+        ]
+      },
+      "id": "node/6115840284"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10946268605",
+        "amenity": "fire_station",
+        "name": "Forest Fire Crew Station",
+        "survey:date": "2023-06-02"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.569165,
+          30.0034944
+        ]
+      },
+      "id": "node/10946268605"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11086014212",
+        "amenity": "fire_station",
+        "name": "Uttarakhand Fire and Emergency Station, Sidcul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4175248,
+          29.0013152
+        ]
+      },
+      "id": "node/11086014212"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11349070130",
+        "amenity": "fire_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.8574331,
+          30.3737793
+        ]
+      },
+      "id": "node/11349070130"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12049327970",
+        "amenity": "fire_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0506377,
+          30.3008284
+        ]
+      },
+      "id": "node/12049327970"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13272413960",
+        "amenity": "fire_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0404503,
+          30.318872
+        ]
+      },
+      "id": "node/13272413960"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13971703527",
+        "amenity": "fire_station",
+        "name": "Mussoorie Fire Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0593592,
+          30.461549
+        ]
+      },
+      "id": "node/13971703527"
+    }
+  ]
+}

@@ -1,0 +1,1061 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-09-11T19:20:48Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/102683530",
+        "amenity": "police",
+        "name": "Laxman Jhula police station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3265052,
+          30.1227461
+        ]
+      },
+      "id": "way/102683530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/330695034",
+        "addr:city": "Dehradun",
+        "addr:housenumber": "Thana",
+        "addr:postcode": "248003",
+        "addr:street": "Garhi Cantt",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Garhi Cantt Police Station",
+        "operator": "Uttarakhand Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0244139,
+          30.3525895
+        ]
+      },
+      "id": "way/330695034"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/378926822",
+        "amenity": "police",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3230498,
+          30.1238876
+        ]
+      },
+      "id": "way/378926822"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/399113641",
+        "amenity": "police",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3316326,
+          30.1312863
+        ]
+      },
+      "id": "way/399113641"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/448416031",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.04183,
+          30.48908
+        ]
+      },
+      "id": "node/448416031"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/630902972",
+        "amenity": "police",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.0457163,
+          29.7813049
+        ]
+      },
+      "id": "way/630902972"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/631051194",
+        "amenity": "police",
+        "building": "yes",
+        "name": "SP Office",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2071967,
+          29.579148
+        ]
+      },
+      "id": "way/631051194"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/843490051",
+        "amenity": "police",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1009584,
+          29.954818
+        ]
+      },
+      "id": "way/843490051"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1066877493",
+        "amenity": "police",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5705739,
+          30.0060407
+        ]
+      },
+      "id": "way/1066877493"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1177607103",
+        "amenity": "police",
+        "name": "Police Station Kaladhungi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3491619,
+          29.2801925
+        ]
+      },
+      "id": "way/1177607103"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1188922852",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Reporting Police Station Bhotiya Parao",
+        "operator": "Uttarakhand Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5310295,
+          29.2265704
+        ]
+      },
+      "id": "way/1188922852"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1190979192",
+        "amenity": "police",
+        "name": "Police Kotwali Lalkuan",
+        "operator": "Uttarakhand Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5159546,
+          29.0685023
+        ]
+      },
+      "id": "way/1190979192"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1191239100",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Thana Pantnagar",
+        "operator": "Uttarakhand Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.446974,
+          29.0364435
+        ]
+      },
+      "id": "way/1191239100"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1191710388",
+        "amenity": "police",
+        "name": "Kotwal Rudrapur",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3956782,
+          28.9695525
+        ]
+      },
+      "id": "way/1191710388"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1192351071",
+        "amenity": "police",
+        "name": "Reporting Police Station, Awas Vikas",
+        "operator": "Uttarakhand Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4036316,
+          28.9827527
+        ]
+      },
+      "id": "way/1192351071"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1360401108",
+        "addr:city": "vikasnagar",
+        "addr:district": "dehradun",
+        "addr:postcode": "248198",
+        "addr:street": "By pass road",
+        "amenity": "police",
+        "building": "yes",
+        "name": "police chawki",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7676437,
+          30.4621305
+        ]
+      },
+      "id": "way/1360401108"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1360651631",
+        "amenity": "police",
+        "building": "yes",
+        "name": "POLICE STATION",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.3185017,
+          30.4096623
+        ]
+      },
+      "id": "way/1360651631"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1697822631",
+        "amenity": "police",
+        "name": "Daalanwala Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0540411,
+          30.3250628
+        ]
+      },
+      "id": "node/1697822631"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1718155221",
+        "amenity": "police",
+        "name": "Haldwani Kotwali"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5293165,
+          29.2176092
+        ]
+      },
+      "id": "node/1718155221"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1854138785",
+        "amenity": "police",
+        "designation": "DHARA CHOWKI",
+        "name": "Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0428731,
+          30.3257766
+        ]
+      },
+      "id": "node/1854138785"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3519362070",
+        "amenity": "police",
+        "name": "Police Nideshalaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0503148,
+          30.3301055
+        ]
+      },
+      "id": "node/3519362070"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3812555176",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.315233,
+          30.1222342
+        ]
+      },
+      "id": "node/3812555176"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3820695493",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3531291,
+          30.1256315
+        ]
+      },
+      "id": "node/3820695493"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3869765724",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3890139,
+          30.1377415
+        ]
+      },
+      "id": "node/3869765724"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3869767158",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2944833,
+          30.1283204
+        ]
+      },
+      "id": "node/3869767158"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4462139194",
+        "amenity": "police",
+        "name": "Police station",
+        "name:en": "Police station",
+        "name:ru": "Полиция"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3225254,
+          30.1281763
+        ]
+      },
+      "id": "node/4462139194"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4793451326",
+        "amenity": "police",
+        "name": "Traffic Roundabout",
+        "name:en": "Traffic Roundabout"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.9699247,
+          28.9198133
+        ]
+      },
+      "id": "node/4793451326"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5893335680",
+        "addr:city": "Dehradun",
+        "addr:postcode": "248001",
+        "addr:street": "Sahastradhara Road",
+        "amenity": "police",
+        "name": "Mayur Vihar Police Chowki"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0694594,
+          30.3400573
+        ]
+      },
+      "id": "node/5893335680"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6327434932",
+        "addr:city": "Dehradun",
+        "addr:postcode": "248001",
+        "addr:street": "Rajpur-Mussoorie Road",
+        "amenity": "police",
+        "name": "Police Station Jakhan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0683109,
+          30.3631301
+        ]
+      },
+      "id": "node/6327434932"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6574850286",
+        "amenity": "police",
+        "name": "Military border"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5676071,
+          30.5355032
+        ]
+      },
+      "id": "node/6574850286"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6575905785",
+        "amenity": "police",
+        "name": "Checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4832423,
+          30.3766607
+        ]
+      },
+      "id": "node/6575905785"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6575905786",
+        "amenity": "police",
+        "name": "Checkpoint",
+        "name:en": "Checkpoint"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4767657,
+          30.3790471
+        ]
+      },
+      "id": "node/6575905786"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8588406835",
+        "amenity": "police",
+        "name": "Police check post Barhani"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.2195035,
+          29.2126845
+        ]
+      },
+      "id": "node/8588406835"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8984847737",
+        "amenity": "police",
+        "name": "Pantnagar Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4768737,
+          29.0254191
+        ]
+      },
+      "id": "node/8984847737"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9173720733",
+        "amenity": "police",
+        "name": "Thana- Mukhani"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4928545,
+          29.2116095
+        ]
+      },
+      "id": "node/9173720733"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9202156618",
+        "amenity": "police",
+        "name": "Forest Check Post Lamachaur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4307987,
+          29.2229045
+        ]
+      },
+      "id": "node/9202156618"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9378214144",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5506322,
+          29.2654621
+        ]
+      },
+      "id": "node/9378214144"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9378376477",
+        "amenity": "police",
+        "name": "Dungidhar Police Chowki"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4425796,
+          30.3850358
+        ]
+      },
+      "id": "node/9378376477"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9811866697",
+        "amenity": "police",
+        "name": "Mallital Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4532981,
+          29.3912777
+        ]
+      },
+      "id": "node/9811866697"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9867305261",
+        "addr:street": "Kaladhungi Road",
+        "amenity": "police",
+        "name": "Police Choaki Lamachor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4636386,
+          29.2429019
+        ]
+      },
+      "id": "node/9867305261"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10830489233",
+        "amenity": "police",
+        "description": "Police Station",
+        "name": "Rudraprayag Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9803807,
+          30.2863625
+        ]
+      },
+      "id": "node/10830489233"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10933960314",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5348486,
+          29.0355809
+        ]
+      },
+      "id": "node/10933960314"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11084023644",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1545965,
+          29.1618734
+        ]
+      },
+      "id": "node/11084023644"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11086011448",
+        "amenity": "police",
+        "name": "Reporting Police Station Bazar, Kotwali Rudrapur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.391343,
+          28.9759244
+        ]
+      },
+      "id": "node/11086011448"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11086014213",
+        "amenity": "police",
+        "name": "Chauki Sidcul",
+        "operator": "Uttarakhand Police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4171422,
+          29.0012823
+        ]
+      },
+      "id": "node/11086014213"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11163318018",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5577105,
+          30.6239016
+        ]
+      },
+      "id": "node/11163318018"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11174260186",
+        "amenity": "police",
+        "name": "Reportingg Police Chawki Julikote"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4846462,
+          29.3397888
+        ]
+      },
+      "id": "node/11174260186"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11346671863",
+        "amenity": "police",
+        "name": "Police Chawki Halduchaur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.519623,
+          29.1117772
+        ]
+      },
+      "id": "node/11346671863"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11350775899",
+        "amenity": "police",
+        "name": "Office Senior Police Officer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5292162,
+          29.2173032
+        ]
+      },
+      "id": "node/11350775899"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11351404937",
+        "amenity": "police",
+        "name": "Thana Mukhani"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4875481,
+          29.2309795
+        ]
+      },
+      "id": "node/11351404937"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11356065608",
+        "amenity": "police",
+        "name": "Police Chawki Amrapali, Bhakda"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4197522,
+          29.2277612
+        ]
+      },
+      "id": "node/11356065608"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11358410443",
+        "amenity": "police",
+        "name": "Police Chawki Naveen Mandi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5242044,
+          29.1951309
+        ]
+      },
+      "id": "node/11358410443"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11379037685",
+        "amenity": "police",
+        "name": "Thana Kathgodam"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5443971,
+          29.2716553
+        ]
+      },
+      "id": "node/11379037685"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11542973781",
+        "amenity": "police",
+        "name": "Kotwali Ramnagar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1272471,
+          29.3913346
+        ]
+      },
+      "id": "node/11542973781"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11549954910",
+        "amenity": "police",
+        "name": "Thana Bhimtal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5546639,
+          29.3503161
+        ]
+      },
+      "id": "node/11549954910"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11860363957",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3202278,
+          30.1281554
+        ]
+      },
+      "id": "node/11860363957"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12000495614",
+        "amenity": "police",
+        "name": "Police Chawki Kunwarpur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5657604,
+          29.1940771
+        ]
+      },
+      "id": "node/12000495614"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12254159165",
+        "amenity": "police",
+        "name": "Police Station Banbasa",
+        "name:en": "Police Station Banbasa",
+        "name:hi": "पुलिस स्टेशन बनबसा"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.0696399,
+          28.9920011
+        ]
+      },
+      "id": "node/12254159165"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12684189301",
+        "amenity": "police",
+        "name": "Muni ki reti police thana",
+        "name:hi": "थाना मुनि की रेती",
+        "name:mr": "थाना मुनि की रेती"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.3118072,
+          30.1236181
+        ]
+      },
+      "id": "node/12684189301"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13971414465",
+        "amenity": "police",
+        "name": "Reporting Police Chowki Lakshmibagh"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0327381,
+          30.3163106
+        ]
+      },
+      "id": "node/13971414465"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13971468891",
+        "amenity": "police",
+        "name": "Cyber Crime Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0400032,
+          30.318171
+        ]
+      },
+      "id": "node/13971468891"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13971627596",
+        "amenity": "police",
+        "name": "Kotwali Massoouri"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0745104,
+          30.4577902
+        ]
+      },
+      "id": "node/13971627596"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14096119701",
+        "addr:postcode": "244713",
+        "addr:street": "Tanda Ujjain Road",
+        "amenity": "police",
+        "name": "Police Post, Tanda Ujjain"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9586788,
+          29.2015544
+        ]
+      },
+      "id": "node/14096119701"
+    }
+  ]
+}

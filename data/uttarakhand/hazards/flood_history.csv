@@ -1,0 +1,108 @@
+UEI,Start Date,End Date,Duration(Days),Main Cause,Location,Districts,State,Latitude,Longitude,Severity,Area Affected,Human fatality,Human injured,Human Displaced,Animal Fatality,Extent of damage,Event Source,Event Souce ID,District_LGD_Codes,State_Codes
+UEI-IMD-FL-1970-0002,15-07-1970 00:00,29-07-1970 00:00,15.0,flood,,Entire village,Uttarakhand,,,,,,,,,"Flooding of Alakanda river caused considerable loss of life among pilgrims. A number of bridges, houses,even an entire village in the Joshimath area were washed away",IMD,,,5
+UEI-IMD-FL-1979-0057,09-03-1979 00:00,09-03-1979 00:00,1.0,heavy rains,,Chamoli,Uttarakhand,,,,,,,,,Number of houses heavily damaged in flash floods,IMD,,47,5
+UEI-IMD-FL-1980-0055,25-06-1980 00:00,25-06-1980 00:00,1.0,heavy rains,,Uttar Kashi Kashi,Uttarakhand,,,,,25.0,7.0,,,i)Vast areas inundated ii)The entire Gyansu village situated on the banks of Bhagirathi river destroyed,IMD,,,5
+UEI-IMD-FL-1982-0050,15-04-1982 00:00,28-04-1982 00:00,14.0,heavy rains (unseasonal),,"Dehradun, Almora",Uttarakhand,,,,,,,,,"Harvested,ready for harvest wheat crop damaged",IMD,,"49, 45",5
+UEI-IMD-FL-1982-0052,08-08-1982 00:00,14-08-1982 00:00,7.0,flash floods in a nullah,,Chamoli,Uttarakhand,,,,,,5.0,,,4 houses washed away in Admala village (Karanprayag Tehsil),IMD,,47,5
+UEI-IMD-FL-1983-0094,22-07-1983 00:00,22-07-1983 00:00,1.0,heavy rains,,Almora ,Uttarakhand,,,,,37.0,,,38,"The villages Karmi, Patti, Maldah,Danpur in Bageshwari tehsil completely cut off from rest of the state",IMD,,45,5
+UEI-IMD-FL-1984-0087,29-06-1984 00:00,29-06-1984 00:00,1.0,heavy rains,,Nainital,Uttarakhand,,,,,6.0,,,,,IMD,,51,5
+UEI-IMD-FL-1984-0088,02-07-1984 00:00,02-07-1984 00:00,1.0,heavy rains,,Almora,Uttarakhand,,,,,9.0,,,,3 houses damaged,IMD,,45,5
+UEI-IMD-FL-1984-0090,30-07-1984 00:00,30-07-1984 00:00,1.0,heavy rains,,Nainital,Uttarakhand,,,,,8.0,,,,,IMD,,51,5
+UEI-IMD-FL-1985-0060,22-07-1985 00:00,28-07-1985 00:00,7.0,flash floods,,Garhwal,Uttarakhand,,,,,12.0,,,,,IMD,,52,5
+UEI-IMD-FL-1985-0066,22-10-1985 00:00,28-10-1985 00:00,7.0,heavy rains,,Garhwal,Uttarakhand,,,,,,,,,"A bridge near Malari, situated at an height of 3048 m (10,000 ft) high breached due to landslides",IMD,,52,5
+UEI-IMD-FL-1990-0075,09-07-1990 00:00,09-07-1990 00:00,1.0,heavy rains,,Garhwal,Uttarakhand,,,,,70.0,,,,,IMD,,52,5
+UEI-IMD-FL-1991-0100,15-08-1991 00:00,16-08-1991 00:00,2.0,heavy rains,,Chamoli,Uttarakhand,,,,,32.0,,,90,"i)6 villages affected ii)40 hectares of agricultural land submerged iii)96 houses completely,146 partially collapsed",IMD,,47,5
+UEI-IMD-FL-1991-0101,16-08-1991 00:00,17-08-1991 00:00,2.0,heavy rains,,Almora,Uttarakhand,,,,,1.0,,,14,"i)6,709 people in 29 villages affected ii)31 hectares of land area,38 hectares of crop land submerged iii)34 houses completely,115 partially damaged",IMD,,45,5
+UEI-IMD-FL-1991-0102,18-08-1991 00:00,18-08-1991 00:00,1.0,heavy rains,,Tehri Garhwal,Uttarakhand,,,,,,,,5,3 houses completely damaged,IMD,,55,5
+UEI-IMD-FL-2001-0098,06-07-2001 00:00,06-07-2001 00:00,1.0,heavy rains,,"Uttar Kashi Kashi, Chamoli, Dehradun, Tehri Garhwal, Rudra Prayag, Pithoragarh, Bageshwar, Haridwar, Garhwal, Almora, Nainital, Champawat, Udam Singh Nagar",Uttarakhand,,,,,10.0,,,,(i) Landslides reported (ii)Many people stranded on the way; helped by India-Tibet border police,IMD,,"None, 47, 49, 55, 54, 53, 46, 50, 52, 45, 51, 48, 56",5
+UEI-IMD-FL-2001-0099,16-07-2001 00:00,16-07-2001 00:00,1.0,heavy rains,,"Uttar Kashi Kashi, Chamoli, Dehradun, Tehri Garhwal, Rudra Prayag, Pithoragarh, Bageshwar, Haridwar, Garhwal, Almora, Nainital, Champawat, Udam Singh Nagar",Uttarakhand,,,,,25.0,,,25,(i) Landslides reported (ii) 26 houses damaged,IMD,,"None, 47, 49, 55, 54, 53, 46, 50, 52, 45, 51, 48, 56",5
+UEI-IMD-FL-2001-0100,18-07-2001 00:00,18-07-2001 00:00,1.0,heavy rains,,Rudra Prayag,Uttarakhand,,,,,26.0,,,30,"(i) Landslides reported (ii) 4 villages of Vyomguard,Fatta areas cut off (iii) 26 houses completely damaged (iv) Relief,rescue opeations assisted by Polica,Jawans of INdo-Tibet Border Security to remove debris (v) 850 Kedarnath pilgrims stranded between Gupt Kashi,Gauri Kund. traffic closed down on Dehra Dun-Chakrata,Tihri- over diversion, hampering supply of medicines, tents etc to the affected people",IMD,,54,5
+UEI-IMD-FL-2002-0059,11-08-2002 00:00,11-08-2002 00:00,1.0,heavy rains,,"Tehri Garhwal,Uttar Kashi Kashi",Uttarakhand,,,,,33.0,,,,"(i)Landslides reported (ii)Large number of houses destroyed (iii) Army employed for rescue work (iv) Rescue work hampered due to rains,bad light",IMD,,"55, None",5
+UEI-IMD-FL-2002-0062,12-09-2002 00:00,12-09-2002 00:00,1.0,heavy rains,,"Haridwar,Nainital",Uttarakhand,,,,,,,,,Many houses collapsed,IMD,,"50, 51",5
+UEI-IMD-FL-2003-0093,04-07-2003 00:00,06-07-2003 00:00,3.0,heavy rains,,"Dehradun,Tehri Garhwal",Uttarakhand,,,,,5.0,,,,"(i)Landslide reported (ii)Road communication affctd. Gangotri, Riskhikesh,Badrinath cound traffic stranded",IMD,,"49, 55",5
+UEI-IMD-FL-2003-0094,21-09-2003 00:00,21-09-2003 00:00,1.0,heavy rains,,Pithoragarh,Uttarakhand,,,,,7.0,,,,Landslide reported,IMD,,53,5
+UEI-IMD-FL-2004-0062,29-05-2004 00:00,29-05-2004 00:00,1.0,flash flood(cloud burst),,Bageshwar,Uttarakhand,,,,,,3.0,,,,IMD,,46,5
+UEI-IMD-FL-2004-0063,01-06-2004 00:00,01-06-2004 00:00,1.0,heavy rains(cloud burst),,Almora,Uttarakhand,,,,,,,,,Potato crop in 3000 hectares damaged,IMD,,45,5
+UEI-IMD-FL-2004-0064,06-07-2004 00:00,06-07-2004 00:00,1.0,heavy rains(cloud burst),,Chamoli,Uttarakhand,,,,,31.0,28.0,,,"(i)Landslide reported (ii)3 vehicles washed away (iii)More than 5000 pilgrims stranded as severe damage to road reported near Lambagar (iv) Bad weather hampered rescue,relief work",IMD,,47,5
+UEI-IMD-FL-2004-0065,28-07-2004 00:00,28-07-2004 00:00,1.0,heavy rains,,"Tehri Garhwal,Uttar Kashi Kashi",Uttarakhand,,,,,6.0,,,,Landslide reported,IMD,,"55, None",5
+UEI-IMD-FL-2004-0066,26-08-2004 00:00,26-08-2004 00:00,1.0,flash flood,,Udam Singh Nagar,Uttarakhand,,,,,8.0,,,,(i)Breaches at zero point of Nanak Sagar dam caused heavy destruction (ii)Chikadghat bridge washed away,IMD,,56,5
+UEI-IMD-FL-2005-0146,30-06-2005 00:00,30-06-2005 00:00,1.0,heavy rains,,Chamoli,Uttarakhand,,,,,9.0,,,,,IMD,,47,5
+UEI-IMD-FL-2005-0150,22-07-2005 00:00,22-07-2005 00:00,1.0,heavy rains,,Tehri Garhwal,Uttarakhand,,,,,4.0,,,,Landslide reported in Badiargarh area.,IMD,,55,5
+UEI-IMD-FL-2005-0151,03-08-2005 00:00,03-08-2005 00:00,1.0,heavy rains,,Tehri Garhwal,Uttarakhand,,,,,11.0,,,,,IMD,,55,5
+UEI-IMD-FL-2005-0152,05-08-2005 00:00,05-08-2005 00:00,1.0,heavy rains,,Pithoragarh,Uttarakhand,,,,,10.0,,,,,IMD,,53,5
+UEI-IMD-FL-2005-0156,05-09-2005 00:00,06-09-2005 00:00,2.0,heavy rains,,Bageshwar ,Uttarakhand,,,,,,,,,Motor road damaged at Jaojit area.,IMD,,46,5
+UEI-IMD-FL-2008-0115,17-07-2008 00:00,17-07-2008 00:00,1.0,heavy rains,,Champawat,Uttarakhand,,,,,10.0,12.0,,,Landslide reported.,IMD,,48,5
+UEI-IMD-FL-2009-0074,28-07-2009 00:00,28-07-2009 00:00,1.0,heavy rains,,Garhwal,Uttarakhand,,,,,6.0,,,,Landslide reported.,IMD,,52,5
+UEI-IMD-FL-2009-0076,08-08-2009 00:00,08-08-2009 00:00,1.0,severe flood (cloud burst),,Pithoragarh,Uttarakhand,,,,,43.0,,,100,i)About 12 houses trapped under debris. ii) Landslide reported.,IMD,,53,5
+UEI-IMD-FL-2010-0135,05-07-2010 00:00,05-07-2010 00:00,1.0,heavy rains,,Mathura,Uttarakhand,,,,,6.0,2.0,,,,IMD,,167,5
+UEI-IMD-FL-2010-0136,18-08-2010 00:00,18-08-2010 00:00,1.0,heavy rains,,Bageshwar,Uttarakhand,,,,,18.0,8.0,,,i) Landslide reported. ii) Damage to public property reported. ,IMD,,46,5
+UEI-IMD-FL-2010-0140,18-09-2010 00:00,19-09-2010 00:00,2.0,heavy rains,,"Almora, Dehradun,Nainital",Uttarakhand,,,,,20.0,,,,i) Cloud burst reported. ii) Many people rendered homeless. ,IMD,,"45, 49, 51",5
+UEI-IMD-FL-2011-0098,21-07-2011 00:00,21-07-2011 00:00,1.0,heavy rains,,Almora,Uttarakhand,,,,,2.0,,,,,IMD,,45,5
+UEI-IMD-FL-2011-0099,23-08-2011 00:00,23-08-2011 00:00,1.0,heavy rains,,Parts of Uttar Kashiakhand,Uttarakhand,,,,,5.0,,,,,IMD,,,5
+UEI-IMD-FL-2012-0077,04-08-2012 00:00,04-08-2012 00:00,1.0,heavy rains (cloud burst) ,,Chamoli,Uttarakhand,,,,,7.0,20.0,,,i) Landslides reported.ii) About 30 houses washed away. iii) Gangotri bridge collapsed. iv) Pilgrims of Badrinath-Kedarnath stranded.  v) About 250 falilies shifted to safer places. ,IMD,,47,5
+UEI-IMD-FL-2012-0078,13-09-2012 00:00,13-09-2012 00:00,1.0,heavy rains (cloud burst),,Rudra Prayag,Uttarakhand,,,,,7.0,55.0,,,"1) In Ukhimath area about 12 kachcha houses collapsed from 8 villages, ii) Landslides reported at national highways Hrishikesh-Badrinath,Hrishikesh-Gangotri. ",IMD,,54,5
+UEI-IMD-FL-2013-0131,14-06-2013 00:00,18-06-2013 00:00,5.0,"heavy to very rainfall/flash floods (saraswati,mandakini rivers,its tributaries triggered by very heavy rainfall,lake burst), cloudburst on jun16 &17 jun, massive landslides,avalanches reported at multiple places. ",,"Chamoli, Pithoragarh, Rudra Prayag,Uttar Kashi Kashi",Uttarakhand,,,,,5000.0,,,1000,"i) More than thousands of pilgrims of Char Dham on the Gangotri,Yamunotri routes, Hemkund, Roopkunda,tourists/trakers of Valley of flowers stranded. ii) Lakhs of people shifted to safer places. iii) Many roads including state highways, infrastructures, villages washed away/damaged. iv) Many Hydroelectric projects, houses, water schemes, bridges, commercial,residential buildings, hotels, rest houses, shops, temples, telephone towers, vehicles destroyed/ drifted in the floods of rivers. v) Damage to the cash crops especially apple crops reported.    ",IMD,,"47, 53, 54, None",5
+UEI-IMD-FL-2014-0086,27-07-2014 00:00,27-07-2014 00:00,1.0,heavy rains ,,Pithoragarh ,Uttarakhand,,,,,6.0,,,,,IMD,,53,5
+UEI-IMD-FL-2014-0087,31-07-2014 00:00,31-07-2014 00:00,1.0,heavy rains,,Tehri Garhwal ,Uttarakhand,,,,,5.0,,,,,IMD,,55,5
+UEI-IMD-FL-2014-0088,11-08-2014 00:00,11-08-2014 00:00,1.0,heavy rains ,,Parts of Uttar Kashiakhand ,Uttarakhand,,,,,,,,,,IMD,,,5
+UEI-IMD-FL-2015-0104,26-07-2015 00:00,26-07-2015 00:00,1.0,heavy rains,,Parts of Uttar Kashiakhand,Uttarakhand,,,,,1.0,,,,,IMD,,,5
+UEI-IMD-FL-2016-0126,08-05-2016 00:00,08-05-2016 00:00,1.0,landslide,,Chamoli,Uttarakhand,,,,,,,,,i) Damage to more than 10 houses reported ii) Damage to more than half dozen vehicles reported.,IMD,,47,5
+UEI-IMD-FL-2016-0127,22-05-2016 00:00,22-05-2016 00:00,1.0,landslide,,Dehradun,Uttarakhand,,,,,10.0,5.0,,,,IMD,,49,5
+UEI-IMD-FL-2016-0128,28-05-2016 00:00,28-05-2016 00:00,1.0,cloud burst,,"Tehri Garhwal,Uttar Kashi Kashi",Uttarakhand,,,,,5.0,,,,,IMD,,"55, None",5
+UEI-IMD-FL-2016-0129,03-07-2016 00:00,03-07-2016 00:00,1.0,cloud burst,,"Chamoli, Pithoragarh",Uttarakhand,,,,,20.0,12.0,,,i) 150 families affected ii) 4 houses fully & 12 houses partially damaged.,IMD,,"47, 53",5
+UEI-IMD-FL-2016-0130,16-07-2016 00:00,17-07-2016 00:00,2.0,heavy rains & heavy rains &,,"Dehradun, Nainital, Tehri Garhwal, Uttar Kashi Kashi",Uttarakhand,,,,,15.0,,,,"i) Rishikesh-Badrinath national highway,the Rishikesh - Kedarnath National Highway between Sonprayag,Gaurikund, remained cut off. ii) Damage to several bridges across the state reported.",IMD,,"49, 51, 55, None",5
+UEI-IMD-FL-2016-0131,21-07-2016 00:00,23-07-2016 00:00,3.0,landslide,,Dehradun,Uttarakhand,,,,,11.0,,,,,IMD,,49,5
+UEI-IMD-FL-2017-0120,20-05-2017 00:00,20-05-2017 00:00,1.0,Landslide,,Chamoli,Uttarakhand,,,,,13.0,,,,Thousands of Pilgrims stranded,IMD,,47,5
+UEI-IMD-FL-2017-0121,13-08-2017 00:00,13-08-2017 00:00,1.0,Landslide,,Pithoragarh,Uttarakhand,,,,,1.0,,2,18,,IMD,,53,5
+UEI-IMD-FL-2018-0116,07-11-2018 00:00,07-11-2018 00:00,1.0,Heavy Rains,,Dehradun,Uttarakhand,,,,,7.0,,,,,IMD,,49,5
+UEI-IMD-FL-2018-0117,30-08-2018 00:00,30-08-2018 00:00,1.0,Landslide,,Tehri Garhwal,Uttarakhand,,,,,6.0,,,,Damage to houses reported,IMD,,55,5
+UEI-IMD-FL-2019-0147,06-02-2019 00:00,06-02-2019 00:00,1.0,Flash floods,,"Almora, Chamoli",Uttarakhand,,,,,1.0,,1,,"i) Damage to agricultural land reported. ii) Damage to several houses, cowsheds reported. iii) Damage to main roads,local bridges reported. iv) Large-scale destruction in Gangnahar, Lambagad, Ramgaderi, Bisht Bhankhli,Negi Bankhali villages reported. v) The Mahelchouri-Chaukhatiya highway blocked due to the debris.",IMD,,"45, 47",5
+UEI-IMD-FL-2019-0148,21-06-2019 00:00,21-06-2019 00:00,1.0,Heavy rains & flash flood as a result of cloud burst,,Uttar Kashi Kashi,Uttarakhand,,,,,1.0,4.0,,,i) Damage to houses & shops reported. ii) Several trees uprooted causing blocking of main road for a couple of hours.,IMD,,,5
+UEI-IMD-FL-2019-0149,23-06-2019 00:00,23-06-2019 00:00,1.0,Floods in Binnu river,,Garhwal,Uttarakhand,,,,,,,,,"Damage to houses in Mansari,Kanadi villages in Chauthan Patti area of Thailisain block reported.",IMD,,52,5
+UEI-IMD-FL-2019-0150,07-04-2019 00:00,07-04-2019 00:00,1.0,Heavy rains,,Rudra Prayag,Uttarakhand,,,,,,,,,Damage to water pipeline & 40-meter road reported in Sari Chamshil village of Augustmuni block.,IMD,,54,5
+UEI-IMD-FL-2019-0151,08-06-2019 00:00,08-06-2019 00:00,1.0,Heavy rains & flash flood as a result of cloud burst,,"Chamoli, Garhwal, Uttar Kashi Kashi",Uttarakhand,,,,,,,,,"i) Damage to 11 bridges reported. ii) Damage to a school building from Pathar Katta village of Gairsain area reported. iii) Severe damage to properties in Chad a local nullah reported. iv) Damage to 4 cowsheds reported. v) Thousands of visitors stranded as Rishikesh-Badrinath highway at Lambagad was blocked. In addition, several other motor roads in Chamoli, Uttarkashi,Pauri districts affected.",IMD,,"47, 52, None",5
+UEI-IMD-FL-2019-0152,08-08-2019 00:00,08-09-2019 00:00,2.0,"Heavy rains, flash flood as a result of cloud burst",,"Chamoli, Garhwal, Rudra Prayag, Tehri Garhwal",Uttarakhand,,,,,5.0,5.0,,40,"i) Damage to agricultural land reported. ii) Damage to more than 230 houses, 50 shops, Twenty Four cowsheds reported. iii) Damage to 10 water mills, water supply lines reported. iv) Damage to more than two dozen local footbridges,about 60 connecting roads reported.",IMD,,"47, 52, 54, 55",5
+UEI-IMD-FL-2019-0153,08-12-2019 00:00,08-12-2019 00:00,1.0,"Heavy rains, flash floods & Landslide",,"Bageshwar, Chamoli",Uttarakhand,,,,,6.0,,,,"i) Damage to farmlands reported. ii) Damage to drinking water pipelines reported. iii) Damage to Several houses, cowsheds, shops reported. iv) Landslide occurred at Aali, Lankhi & Banjba Gad villages from Chamoli Dist. reported. v) Parts of Katyur valley of Bageshwar Dist. affected.",IMD,,"46, 47",5
+UEI-IMD-FL-2019-0154,18-08-2019 00:00,18-08-2019 00:00,1.0,"Heavy rains & flash floods (in Tons, Pabbar River) & Landslide",,"Dehradun, Garhwal, Tehri Garhwal, Uttar Kashi Kashi",Uttarakhand,,,,,19.0,,,60,"i) Extensive damage to agricultural lands reported. ii) Extensive damage to bridges, a primary school reported. iii) Damage to Several houses, cowsheds, shops reported. iv) Several vehicles washed away. v) A helipad submerged in floodwater,national highways were blocked. vi) Damage to around half a dozen villages viz. Makudi, Arakot, Sanel, Tikochi, Khakwadi, Chinwa, Gokul from Uttarkashi Dist. (which is the worst affected district) due to landslide reported. vii) The Mason village in Chauthan Patti area of Thailisain block in Garhwal, Dist. also affected. viii) Several trees uprooted.",IMD,,"49, 52, 55, None",5
+UEI-IMD-FL-2019-0155,09-02-2019 00:00,09-02-2019 00:00,1.0,Cloud Burst,,Almora,Uttarakhand,,,,,,,,,Damage to house reported in Jajar village in Dhauladevi Block.,IMD,,45,5
+UEI-IMD-FL-2019-0156,09-06-2019 00:00,09-08-2019 00:00,3.0,Heavy rains & flash flood as a result of cloud burst,,"Chamoli, Pithoragarh",Uttarakhand,,,,,1.0,3.0,,6,"i) Damage to several acres of farmland reported. ii) Damage to a portion of inter college reported. iii) Damage to several houses, cowsheds reported. iv) Damage to several roads including 60-meter stretch of Thal-Munsyari highway, 30 meters stretch of Badrinath highway reported due to which thousands of pilgrims stranded at different locations. v) More than 40 vehicles washed away. vi) 2 water mills were washed away. vii) The electricity,communication services disrupted.",IMD,,"47, 53",5
+UEI-IMD-FL-2019-0157,27-09-2019 00:00,27-09-2019 00:00,1.0,Heavy rains & flash flood,,Dehradun,Uttarakhand,,,,,,,,,Damage to about 15 houses in Clement town reported.,IMD,,49,5
+UEI-IMD-FL-2020-0138,15-07-2020 00:00,15-07-2020 00:00,1.0,Heavy Rains,,Dehradun,Uttarakhand,,,,,4.0,2.0,,,Complete damage to a house reported,IMD,,49,5
+UEI-IMD-FL-2020-0139,18-07-2020 00:00,19-07-2020 00:00,2.0,Heavy Rains & Cloud Burst,,Pithoragarh,Uttarakhand,,,,,3.0,,8,,"i) Damage to a bridge on Gori river in the hill town of Munsiyari reported. ii) 4 houses completely damaged. iii) Damage to main roads connecting district headquarters to Bangapani, Munsiyari,Dharchula areas reported. iv) Damage to water pipelines reported.",IMD,,53,5
+UEI-IMD-FL-2020-0140,25-08-2020 00:00,25-08-2020 00:00,1.0,Heavy Rains & Cloud Burst,,Chamoli,Uttarakhand,,,,,1.0,3.0,,,i) Extensive damage to Panchayat Ghar reported. ii) The Rishikesh-Gangotri National Highway in Uttarakhand is blocked near Narendra Nagar,IMD,,47,5
+UEI-IMD-FL-2021-0306,07-02-2021 00:00,07-02-2021 00:00,1.0,Nandadevi Glacier breaks off at Joshimath,,Chamoli,Uttarakhand,,,,,70.0,,205,,,IMD,,47,5
+UEI-IMD-FL-2021-0307,29-05-2021 00:00,29-05-2021 00:00,1.0,Landslide,,Uttar Kashi Kashi ,Uttarakhand,,,,,,,,,,IMD,,,5
+UEI-IMD-FL-2021-0308,11-07-2021 00:00,11-07-2021 00:00,1.0,Landslide,,Bageshwar,Uttarakhand,,,,,3.0,,,,,IMD,,46,5
+UEI-IMD-FL-2021-0309,11-07-2021 00:00,11-07-2021 00:00,1.0,Landslide,,Chamoli ,Uttarakhand,,,,,3.0,,,,,IMD,,47,5
+UEI-IMD-FL-2021-0310,19-07-2021 00:00,19-07-2021 00:00,1.0,Heavy Rains,,Uttar Kashi Kashi,Uttarakhand,,,,,3.0,,,,,IMD,,,5
+UEI-IMD-FL-2021-0311,29-08-2021 00:00,29-08-2021 00:00,1.0, Heavy Rains,,Pithoragarh,Uttarakhand,,,,,7.0,2.0,,,,IMD,,53,5
+UEI-IMD-FL-2021-0312,16-10-2021 00:00,19-10-2021 00:00,4.0,"Heavy Rain, Landslides & Floods",,"Almora, Bageshwar, Chamoli, Champawat, Nainital, Garhwal, Pithoragarh, Udam Singh Nagar",Uttarakhand,,,,,52.0,17.0,5,,,IMD,,"45, 46, 47, 48, 51, 52, 53, 56",5
+UEI-IMD-FL-2022-1098,19-07-2022 00:00,19-07-2022 00:00,1.0,Heavy rains,,Rudra Prayag,Uttarakhand,,,,,2.0,6.0,,,,IMD,,54,5
+UEI-IMD-FL-2022-1099,19-08-2022 00:00,19-08-2022 00:00,1.0,Cloudburst,,"Dehradun, ",Uttarakhand,,,,,,3.0,5,,,IMD,,"49, 603",5
+UEI-IMD-FL-2022-1100,19-08-2022 00:00,19-08-2022 00:00,1.0,Cloudburst,,Garhwal,Uttarakhand,,,,,2.0,,,,,IMD,,52,5
+UEI-IMD-FL-2022-1101,19-08-2022 00:00,19-08-2022 00:00,1.0,Cloudburst,,Tehri Garhwal,Uttarakhand,,,,,5.0,,2,,,IMD,,55,5
+UEI-IMD-FL-2022-1102,28-08-2022 00:00,28-08-2022 00:00,1.0,Heavy Rains,,Dehradun,Uttarakhand,,,,,3.0,,,,,IMD,,49,5
+UEI-IMD-FL-2022-1103,22-09-2022 00:00,22-09-2022 00:00,1.0,Landslides triggered by Heavy Rains,,"Dehradun, ",Uttarakhand,,,,,,,,,,IMD,,"49, 603",5
+UEI-IMD-FL-2022-1104,22-09-2022 00:00,22-09-2022 00:00,1.0,Landslides triggered by Heavy Rains,,Uttar Kashi Kashi,Uttarakhand,,,,,1.0,,,,,IMD,,,5
+UEI-IMD-FL-2023-0574,25-06-2023 00:00,25-06-2023 00:00,1.0,Heavy rains,,Rudra Prayag,Uttarakhand,,,,,1.0,,,,,IMD,,54,5
+UEI-IMD-FL-2023-0575,25-06-2023 00:00,25-06-2023 00:00,1.0,Heavy rains,,Uttar Kashi Kashi,Uttarakhand,,,,,1.0,3.0,,,,IMD,,,5
+UEI-IMD-FL-2023-0576,09-07-2023 00:00,09-07-2023 00:00,1.0,Landslide,,Dehradun,Uttarakhand,,,,,3.0,,,,,IMD,,49,5
+UEI-IMD-FL-2023-0577,09-07-2023 00:00,09-07-2023 00:00,1.0,Heavy rains,,Udam Singh Nagar,Uttarakhand,,,,,2.0,1.0,,,,IMD,,56,5
+UEI-IMD-FL-2023-0578,10-07-2023 00:00,10-07-2023 00:00,1.0,Heavy rains,,Uttar Kashi Kashi,Uttarakhand,,,,,4.0,7.0,,,,IMD,,,5
+UEI-IMD-FL-2023-0579,11-07-2023 00:00,11-07-2023 00:00,1.0,Heavy rains & Landslides,,Pithoragarh,Uttarakhand,,,,,5.0,,,,,IMD,,53,5
+UEI-IMD-FL-2023-0580,11-07-2023 00:00,11-07-2023 00:00,1.0,Heavy rains & Landslides,,Rudra Prayag,Uttarakhand,,,,,3.0,,,,,IMD,,54,5
+UEI-IMD-FL-2023-0581,16-07-2023 00:00,16-07-2023 00:00,1.0,Heavy rains & Floods,,Chamoli,Uttarakhand,,,,,5.0,,,,,IMD,,47,5
+UEI-IMD-FL-2023-0582,16-07-2023 00:00,16-07-2023 00:00,1.0,Heavy rains & Floods,,Rudra Prayag,Uttarakhand,,,,,,,,,,IMD,,54,5
+UEI-IMD-FL-2023-0583,17-07-2023 00:00,17-07-2023 00:00,1.0,Heavy Rains & Floods,,Rudra Prayag,Uttarakhand,,,,,,14.0,,,,IMD,,54,5
+UEI-IMD-FL-2023-0584,04-08-2023 00:00,04-08-2023 00:00,1.0,Massive Landslide,,Rudra Prayag,Uttarakhand,,,,,10.0,,13,,,IMD,,54,5
+UEI-IMD-FL-2023-0585,06-08-2023 00:00,06-08-2023 00:00,1.0,Heavy Rains,,Tehri Garhwal,Uttarakhand,,,,,2.0,1.0,,,,IMD,,55,5
+UEI-IMD-FL-2023-0586,07-08-2023 00:00,07-08-2023 00:00,1.0,Landslide,,Rudra Prayag,Uttarakhand,,,,,3.0,,17,,,IMD,,54,5
+UEI-IMD-FL-2023-0587,09-08-2023 00:00,09-08-2023 00:00,1.0,Landslides,,Rudra Prayag,Uttarakhand,,,,,7.0,3.0,1,,,IMD,,54,5
+UEI-IMD-FL-2023-0588,10-08-2023 00:00,10-08-2023 00:00,1.0,Heavy Rains,,Garhwal,Uttarakhand,,,,,1.0,,,,,IMD,,52,5
+UEI-IMD-FL-2023-0589,10-08-2023 00:00,10-08-2023 00:00,1.0,Landslide,,Rudra Prayag,Uttarakhand,,,,,5.0,,,,,IMD,,54,5
+UEI-IMD-FL-2023-0590,14-08-2023 00:00,14-08-2023 00:00,1.0,Torrential rains & Landslides,,Dehradun,Uttarakhand,,,,,4.0,,9,,,IMD,,49,5
+UEI-IMD-FL-2023-0591,14-08-2023 00:00,14-08-2023 00:00,1.0,Landslide,,Tehri Garhwal,Uttarakhand,,,,,4.0,,,,,IMD,,55,5
+UEI-IMD-FL-2023-0592,15-08-2023 00:00,15-08-2023 00:00,1.0,Heavy Rains,,Chamoli,Uttarakhand,,,,,,3.0,4,,,IMD,,47,5
+UEI-IMD-FL-2023-0593,21-08-2023 00:00,21-08-2023 00:00,1.0,Landslide,,Tehri Garhwal,Uttarakhand,,,,,5.0,,,,,IMD,,55,5
+UEI-IMD-FL-2023-0594,23-08-2023 00:00,23-08-2023 00:00,1.0,Heavy Rains,,Garhwal,Uttarakhand,,,,,1.0,,,,,IMD,,52,5
+UEI-IMD-FL-2023-0633,26-08-2023 00:00,26-08-2023 00:00,1.0,Heavy Rains & Floods,,Chamoli,Uttarakhand,,,,,2.0,,,,,IMD,,47,5

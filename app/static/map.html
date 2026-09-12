@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project AASRA - Interactive GIS Disaster & Relocation Map</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      height: 100%; width: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      overflow: hidden; display: flex; flex-direction: column;
+      background: #0f172a; color: #1e293b;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      height: 60px; background: #0f172a; color: #ffffff;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-logo { font-size: 26px; }
+    .brand-title { font-size: 19px; font-weight: 800; letter-spacing: 0.8px; color: #f8fafc; }
+    .brand-subtitle { font-size: 12px; color: #94a3b8; margin-left: 6px; }
+
+    /* State Navigation Controls */
+    .state-nav { display: flex; align-items: center; gap: 10px; }
+    .state-btn {
+      background: rgba(255, 255, 255, 0.07); color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.18); padding: 7px 16px;
+      border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+      transition: all 0.2s ease; display: flex; align-items: center; gap: 8px;
+    }
+    .state-btn:hover { background: rgba(255, 255, 255, 0.16); color: #ffffff; border-color: #94a3b8; }
+    .state-btn.active {
+      background: #2563eb; color: #ffffff; border-color: #60a5fa;
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.6);
+    }
+    .state-badge { font-size: 10px; padding: 2px 7px; border-radius: 4px; background: rgba(0, 0, 0, 0.35); }
+    .state-badge.active-pilot { background: #10b981; color: #ffffff; font-weight: 700; }
+
+    /* Main Layout */
+    .main-container {
+      flex: 1; display: flex; position: relative; width: 100%; height: calc(100% - 60px);
+    }
+
+    #map {
+      flex: 1; width: 100%; height: 100%; background: #0b0f19;
+    }
+
+    /* Floating Stats Bar */
+    .stats-bar {
+      position: absolute; top: 16px; left: 60px; z-index: 1000;
+      background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(8px);
+      color: #f8fafc; padding: 8px 18px; border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12);
+      display: flex; gap: 20px; align-items: center; font-size: 12px;
+    }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; font-weight: 700; }
+    .stat-value { font-size: 15px; font-weight: 800; color: #38bdf8; }
+    .stat-value.danger { color: #f87171; }
+    .stat-value.success { color: #4ade80; }
+
+    /* Map Legend Overlay */
+    .map-legend {
+      position: absolute; bottom: 28px; right: 20px; z-index: 1000;
+      background: rgba(15, 23, 42, 0.94); backdrop-filter: blur(8px);
+      color: #f8fafc; padding: 14px 18px; border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.12);
+      font-size: 12px; width: 230px;
+    }
+    .legend-title { font-weight: 800; font-size: 13px; margin-bottom: 8px; color: #f1f5f9; }
+    .legend-subtitle { font-size: 11px; color: #94a3b8; margin-bottom: 6px; text-transform: uppercase; font-weight: 700; }
+    .legend-row { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); flex-shrink: 0; }
+    .legend-line { width: 18px; height: 3px; flex-shrink: 0; }
+    .legend-poly { width: 14px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+    /* Coordinate HUD */
+    .map-hud {
+      position: absolute; bottom: 28px; left: 20px; z-index: 1000;
+      background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(8px);
+      color: #cbd5e1; padding: 8px 14px; border-radius: 8px;
+      font-size: 11px; box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.1); display: flex; gap: 14px;
+    }
+
+    /* Popup Styling */
+    .leaflet-popup-content-wrapper {
+      background: #1e293b; color: #f8fafc; border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15);
+      font-family: inherit;
+    }
+    .leaflet-popup-tip { background: #1e293b; }
+    .popup-card { padding: 4px; min-width: 250px; max-width: 320px; }
+    .popup-header {
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 6px; margin-bottom: 8px;
+    }
+    .popup-title { font-size: 14px; font-weight: 800; color: #38bdf8; }
+    .popup-badge {
+      font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 12px;
+      text-transform: uppercase; color: #ffffff;
+    }
+    .badge-red { background: #dc2626; }
+    .badge-orange { background: #ea580c; }
+    .badge-yellow { background: #d97706; }
+    .badge-green { background: #16a34a; }
+    .badge-blue { background: #2563eb; }
+
+    .popup-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
+    .popup-label { color: #94a3b8; font-weight: 500; }
+    .popup-val { font-weight: 700; color: #f1f5f9; text-align: right; }
+
+    .route-btn {
+      width: 100%; margin-top: 10px; padding: 8px 12px; background: #2563eb; color: #ffffff;
+      border: none; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s;
+    }
+    .route-btn:hover { background: #1d4ed8; }
+
+    /* Custom Leaflet Layer Control Dark Theme */
+    .leaflet-control-layers {
+      background: rgba(15, 23, 42, 0.94) !important; color: #f1f5f9 !important;
+      border: 1px solid rgba(255,255,255,0.15) !important; border-radius: 10px !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important; font-family: inherit !important;
+    }
+    .leaflet-control-layers-expanded { padding: 12px 16px !important; }
+    .leaflet-control-layers-separator { border-top: 1px solid rgba(255,255,255,0.12) !important; margin: 8px 0 !important; }
+
+    /* Village Search Box */
+    .search-box {
+      display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.08);
+      padding: 4px 6px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .search-input {
+      background: transparent; border: none; outline: none; color: #f8fafc;
+      font-size: 13px; width: 280px; padding: 4px 8px; font-family: inherit;
+    }
+    .search-input::placeholder { color: #94a3b8; }
+    .search-btn {
+      background: #2563eb; color: #ffffff; border: none; border-radius: 6px;
+      padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .search-btn:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="brand">
+      <span class="brand-logo">🛡️</span>
+      <div>
+        <span class="brand-title">PROJECT AASRA</span>
+        <span class="brand-subtitle">Interactive GIS Multi-Hazard & Relocation Platform</span>
+      </div>
+    </div>
+
+    <!-- Real Village Search Bar -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="village-search-input"
+        class="search-input"
+        placeholder="🔍 Search 16,920 villages (e.g. Joshimath, Dhak, Tapovan)..."
+        onkeydown="if(event.key==='Enter') searchAndFlyToVillage()"
+      />
+      <button class="search-btn" onclick="searchAndFlyToVillage()">Find</button>
+    </div>
+
+    <!-- Quick State Navigation -->
+    <div class="state-nav">
+      <button class="state-btn active" id="btn-uttarakhand" onclick="switchState('Uttarakhand')">
+        <span>Uttarakhand</span>
+        <span class="state-badge active-pilot">Active Pilot</span>
+      </button>
+      <button class="state-btn" id="btn-assam" onclick="switchState('Assam')">
+        <span>Assam</span>
+        <span class="state-badge">Floodplain</span>
+      </button>
+      <button class="state-btn" id="btn-odisha" onclick="switchState('Odisha')">
+        <span>Odisha</span>
+        <span class="state-badge">Coastal</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <!-- Leaflet Map Container -->
+    <div id="map"></div>
+
+    <!-- Stats HUD Bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-label">Active State</span>
+        <span class="stat-value" id="stat-state">Uttarakhand</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Households Indexed</span>
+        <span class="stat-value" id="stat-households">40</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Relocation Priority</span>
+        <span class="stat-value danger" id="stat-high-risk">39 Needs Evac</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Shelters Available</span>
+        <span class="stat-value success" id="stat-shelters">256 Sites</span>
+      </div>
+    </div>
+
+    <!-- Coordinate HUD -->
+    <div class="map-hud">
+      <div>Lat/Lon: <strong id="hud-coords" style="color:#38bdf8;">30.0668, 79.0193</strong></div>
+      <div>Zoom: <strong id="hud-zoom" style="color:#38bdf8;">8</strong></div>
+      <div>Layers: <strong id="hud-layers" style="color:#4ade80;">Active</strong></div>
+    </div>
+
+    <!-- Map Legend -->
+    <div class="map-legend">
+      <div class="legend-title">AASRA GIS Legend</div>
+
+      <div class="legend-subtitle">Household Risk Level</div>
+      <div class="legend-row"><div class="legend-dot" style="background:#dc2626;"></div><span>CRITICAL / VERY HIGH (Red)</span></div>
+      <div class="legend-row"><div class="legend-dot" style="background:#ea580c;"></div><span>HIGH RISK (Orange)</span></div>
+      <div class="legend-row"><div class="legend-dot" style="background:#d97706;"></div><span>MODERATE (Yellow)</span></div>
+      <div class="legend-row"><div class="legend-dot" style="background:#16a34a;"></div><span>LOW RISK (Green)</span></div>
+
+      <div class="legend-subtitle" style="margin-top:8px;">Relocation & Boundaries</div>
+      <div class="legend-row"><div class="legend-line" style="background:#38bdf8; height:4px;"></div><span>Uttarakhand Pilot Outline 🛡️</span></div>
+      <div class="legend-row"><div class="legend-line" style="border-top:2px dashed #cbd5e1;"></div><span>District Boundaries 🏛️</span></div>
+      <div class="legend-row"><div class="legend-dot" style="background:#10b981;"></div><span>Village Settlement 🏡</span></div>
+      <div class="legend-row"><div class="legend-dot" style="background:#0288d1; border-radius:3px;"></div><span>Relocation Shelter 🏠</span></div>
+      <div class="legend-row"><div class="legend-line" style="background:#0ea5e9;"></div><span>River Network 🏞️</span></div>
+      <div class="legend-row"><div class="legend-dot" style="background:#a855f7;"></div><span>GSI Landslide Point ⛰️</span></div>
+      <div class="legend-row"><div class="legend-dot" style="background:#ec4899;"></div><span>Earthquake Epicenter ⚡</span></div>
+      <div class="legend-row"><div class="legend-dot" style="background:#06b6d4;"></div><span>Rainfall Station 🌧️</span></div>
+      <div class="legend-row"><div class="legend-line" style="border-top:2px dashed #f59e0b;"></div><span>Evacuation Transit Route</span></div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script>
+    // State camera views
+    const STATE_CONFIG = {
+      "Uttarakhand": { center: [30.25, 79.25], zoom: 8, hh_count: 40, shelter_count: 256 },
+      "Assam": { center: [26.2006, 92.9376], zoom: 7, hh_count: 5, shelter_count: 4 },
+      "Odisha": { center: [20.9517, 85.0985], zoom: 7, hh_count: 5, shelter_count: 4 }
+    };
+
+    let activeState = "Uttarakhand";
+
+    // Initialize Map with Canvas renderer for high-speed multi-point rendering
+    const map = L.map("map", {
+      center: STATE_CONFIG["Uttarakhand"].center,
+      zoom: STATE_CONFIG["Uttarakhand"].zoom,
+      preferCanvas: true,
+      zoomControl: false
+    });
+
+    L.control.zoom({ position: "topleft" }).addTo(map);
+
+    // Base Tile Layers
+    const cartoDark = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://carto.com/">CARTO</a> & OpenStreetMap | Project AASRA'
+    }).addTo(map);
+
+    const osmStandard = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    });
+
+    const topoMap = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
+      maxZoom: 17,
+      attribution: 'OpenTopoMap | SRTM'
+    });
+
+    // Layer Groups for Overlays
+    const layerStateOutline = L.layerGroup().addTo(map);
+    const layerDistricts = L.layerGroup().addTo(map);
+    const layerVillages = L.layerGroup();
+    const layerRivers = L.layerGroup().addTo(map);
+    const layerLandslides = L.layerGroup().addTo(map);
+    const layerEarthquakes = L.layerGroup();
+    const layerRainfall = L.layerGroup();
+    const layerHouseholds = L.layerGroup().addTo(map);
+    const layerShelters = L.layerGroup().addTo(map);
+    const layerRouting = L.layerGroup().addTo(map);
+
+    // Layer Control
+    const baseMaps = {
+      "Dark Spatial (Recommended)": cartoDark,
+      "OpenStreetMap (Standard)": osmStandard,
+      "OpenTopoMap (Topographic)": topoMap
+    };
+
+    const overlayMaps = {
+      "🛡️ Uttarakhand State Outline": layerStateOutline,
+      "🏛️ District Boundaries": layerDistricts,
+      "🏡 Village Settlements (16,920)": layerVillages,
+      "🏘️ Households (Risk Colored)": layerHouseholds,
+      "🏠 Relocation Shelters": layerShelters,
+      "⛰️ GSI Landslide Inventory": layerLandslides,
+      "🏞️ River Networks": layerRivers,
+      "⚡ Earthquake Epicenters": layerEarthquakes,
+      "🌧️ Rainfall Stations": layerRainfall,
+      "🚗 Evacuation Route": layerRouting
+    };
+
+    const layerControl = L.control.layers(baseMaps, overlayMaps, { position: "topright", collapsed: false }).addTo(map);
+    L.control.scale({ position: "bottomright", metric: true, imperial: false }).addTo(map);
+
+    // Cache of loaded shelters for fast routing lookups
+    const shelterLookup = {};
+
+    // HUD Listeners
+    const hudCoords = document.getElementById("hud-coords");
+    const hudZoom = document.getElementById("hud-zoom");
+    map.on("mousemove", (e) => {
+      hudCoords.textContent = `${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`;
+    });
+    map.on("zoomend", () => {
+      hudZoom.textContent = map.getZoom();
+    });
+
+    // ========================================================================
+    // 0. LOAD UTTARAKHAND STATE OUTLINE (Focus Highlight)
+    // ========================================================================
+    function loadStateBoundary() {
+      layerStateOutline.clearLayers();
+      if (activeState !== "Uttarakhand") return;
+      fetch("/gis/state-boundary")
+        .then(r => r.json())
+        .then(data => {
+          L.geoJSON(data, {
+            style: {
+              color: "#38bdf8",
+              weight: 4,
+              opacity: 0.95,
+              fillColor: "#0284c7",
+              fillOpacity: 0.04,
+              lineCap: "round",
+              lineJoin: "round"
+            },
+            onEachFeature: (feat, layer) => {
+              layer.bindTooltip("🛡️ <strong>State of Uttarakhand (Project AASRA Active Pilot)</strong>", { sticky: true });
+            }
+          }).addTo(layerStateOutline);
+        })
+        .catch(err => console.error("Error loading state boundary:", err));
+    }
+
+    // ========================================================================
+    // 1. LOAD DISTRICT BOUNDARIES (Interactive Districts with Risk Intelligence)
+    // ========================================================================
+    function loadDistricts() {
+      layerDistricts.clearLayers();
+      if (activeState !== "Uttarakhand") return;
+      fetch("/gis/districts")
+        .then(r => r.json())
+        .then(data => {
+          const defaultStyle = {
+            color: "#94a3b8",
+            weight: 1.8,
+            opacity: 0.85,
+            fillColor: "#334155",
+            fillOpacity: 0.08,
+            dashArray: "4, 4"
+          };
+
+          const highlightStyle = {
+            color: "#f59e0b",
+            weight: 3,
+            opacity: 1.0,
+            fillColor: "#f59e0b",
+            fillOpacity: 0.22,
+            dashArray: ""
+          };
+
+          L.geoJSON(data, {
+            style: defaultStyle,
+            onEachFeature: (feat, layer) => {
+              const p = feat.properties || {};
+              const dname = p.DISTRICT || p.district || p.District || "District";
+
+              layer.bindTooltip(`🏛️ <strong>${dname} District</strong>`, { sticky: true });
+
+              layer.on({
+                mouseover: () => layer.setStyle(highlightStyle),
+                mouseout: () => layer.setStyle(defaultStyle)
+              });
+
+              layer.bindPopup(`
+                <div class="popup-card">
+                  <div class="popup-header">
+                    <span class="popup-title">🏛️ ${dname} District</span>
+                    <span class="popup-badge badge-orange">${p.alert_level || "ALERT"}</span>
+                  </div>
+                  <div class="popup-row"><span class="popup-label">District Risk Score:</span><span class="popup-val" style="color:#f87171;">${p.risk_score || "N/A"} / 100</span></div>
+                  <div class="popup-row"><span class="popup-label">Houses Destroyed:</span><span class="popup-val">${p.houses_destroyed || 0}</span></div>
+                  <div class="popup-row"><span class="popup-label">Houses Damaged:</span><span class="popup-val">${p.houses_damaged || 0}</span></div>
+                  <div class="popup-row"><span class="popup-label">Source Layer:</span><span class="popup-val">district_boundary_4326.geojson</span></div>
+                </div>
+              `);
+            }
+          }).addTo(layerDistricts);
+        })
+        .catch(err => console.error("Error loading districts:", err));
+    }
+
+    // ========================================================================
+    // 1B. LOAD VILLAGE SETTLEMENTS (16,920 Verified Survey of India Records)
+    // ========================================================================
+    function loadVillages(districtFilter) {
+      layerVillages.clearLayers();
+      if (activeState !== "Uttarakhand") return;
+      const url = districtFilter ? `/gis/villages?district=${encodeURIComponent(districtFilter)}&limit=3000` : `/gis/villages?limit=2500`;
+      fetch(url)
+        .then(r => r.json())
+        .then(data => {
+          L.geoJSON(data, {
+            pointToLayer: (feat, latlng) => {
+              return L.circleMarker(latlng, {
+                radius: 3.5,
+                fillColor: "#10b981",
+                color: "#047857",
+                weight: 1,
+                opacity: 0.9,
+                fillOpacity: 0.8
+              });
+            },
+            onEachFeature: (feat, layer) => {
+              const p = feat.properties || {};
+              layer.bindTooltip(`🏡 <strong>${p.village}</strong> (${p.district})`, { sticky: true });
+              layer.bindPopup(`
+                <div class="popup-card">
+                  <div class="popup-header">
+                    <span class="popup-title">🏡 ${p.village}</span>
+                    <span class="popup-badge badge-green">VILLAGE</span>
+                  </div>
+                  <div class="popup-row"><span class="popup-label">District:</span><span class="popup-val">${p.district}</span></div>
+                  <div class="popup-row"><span class="popup-label">Sub-district (Tehsil):</span><span class="popup-val">${p.subdistrict || 'N/A'}</span></div>
+                  <div class="popup-row"><span class="popup-label">Block:</span><span class="popup-val">${p.block || 'N/A'}</span></div>
+                  <div class="popup-row"><span class="popup-label">Population:</span><span class="popup-val">${p.population > 0 ? p.population : 'Census Indexed'}</span></div>
+                  <div class="popup-row"><span class="popup-label">Households:</span><span class="popup-val">${p.households > 0 ? p.households : 'Census Indexed'}</span></div>
+                  <div class="popup-row"><span class="popup-label">Coordinates:</span><span class="popup-val" style="color:#38bdf8;font-size:11px;">${feat.geometry.coordinates[1].toFixed(4)}, ${feat.geometry.coordinates[0].toFixed(4)}</span></div>
+                </div>
+              `);
+            }
+          }).addTo(layerVillages);
+        })
+        .catch(err => console.error("Error loading villages:", err));
+    }
+
+    // ========================================================================
+    // 1C. INSTANT VILLAGE SEARCH & CAMERA FLY-TO
+    // ========================================================================
+    let searchHighlightMarker = null;
+
+    window.searchAndFlyToVillage = function() {
+      const input = document.getElementById("village-search-input");
+      const query = (input ? input.value : "").trim();
+      if (!query) {
+        alert("Please enter a village name to search (e.g. Joshimath, Dhak, Tapovan, Barkot).");
+        return;
+      }
+
+      fetch(`/gis/villages?search=${encodeURIComponent(query)}&limit=10`)
+        .then(r => r.json())
+        .then(data => {
+          const results = data.features || [];
+          if (!results.length) {
+            alert(`No village found matching "${query}". Try another village name or spelling.`);
+            return;
+          }
+
+          const topMatch = results[0];
+          const coords = topMatch.geometry.coordinates; // [lon, lat]
+          const lat = coords[1];
+          const lon = coords[0];
+          const p = topMatch.properties;
+
+          // Ensure villages layer is active
+          if (!map.hasLayer(layerVillages)) {
+            map.addLayer(layerVillages);
+          }
+
+          // Remove prior search marker if any
+          if (searchHighlightMarker) {
+            map.removeLayer(searchHighlightMarker);
+          }
+
+          // Create animated highlighted pulsing search marker
+          searchHighlightMarker = L.circleMarker([lat, lon], {
+            radius: 12,
+            fillColor: "#f59e0b",
+            color: "#ffffff",
+            weight: 3,
+            fillOpacity: 0.95
+          }).addTo(map);
+
+          searchHighlightMarker.bindPopup(`
+            <div class="popup-card">
+              <div class="popup-header">
+                <span class="popup-title">🎯 Found: ${p.village}</span>
+                <span class="popup-badge badge-orange">${p.district}</span>
+              </div>
+              <div class="popup-row"><span class="popup-label">Village:</span><span class="popup-val">${p.village}</span></div>
+              <div class="popup-row"><span class="popup-label">District:</span><span class="popup-val">${p.district}</span></div>
+              <div class="popup-row"><span class="popup-label">Sub-district:</span><span class="popup-val">${p.subdistrict || 'N/A'}</span></div>
+              <div class="popup-row"><span class="popup-label">Block:</span><span class="popup-val">${p.block || 'N/A'}</span></div>
+              <div class="popup-row"><span class="popup-label">Population:</span><span class="popup-val">${p.population > 0 ? p.population : 'Census Indexed'}</span></div>
+              <div class="popup-row"><span class="popup-label">Coordinates:</span><span class="popup-val" style="color:#38bdf8;">${lat.toFixed(4)}, ${lon.toFixed(4)}</span></div>
+            </div>
+          `).openPopup();
+
+          // Smooth high-resolution fly-to
+          map.flyTo([lat, lon], 13, { duration: 1.5 });
+        })
+        .catch(err => {
+          console.error("Village search error:", err);
+          alert("Error executing village search.");
+        });
+    };
+    // ========================================================================
+    // 3. LOAD RIVER NETWORKS
+    // ========================================================================
+    function loadRivers() {
+      layerRivers.clearLayers();
+      if (activeState !== "Uttarakhand") return;
+      fetch("/gis/rivers")
+        .then(r => r.json())
+        .then(data => {
+          L.geoJSON(data, {
+            style: {
+              color: "#38bdf8",
+              weight: 2.2,
+              opacity: 0.85
+            },
+            onEachFeature: (feat, layer) => {
+              const p = feat.properties || {};
+              const rName = p.name || p.NAME || "Himalayan River System";
+              layer.bindTooltip(`🏞️ ${rName}`, { sticky: true });
+              layer.bindPopup(`
+                <div class="popup-card">
+                  <div class="popup-header">
+                    <span class="popup-title">${rName}</span>
+                    <span class="popup-badge badge-blue">RIVER CORRIDOR</span>
+                  </div>
+                  <div class="popup-row"><span class="popup-label">Waterway Type:</span><span class="popup-val">${p.waterway || "River / Stream"}</span></div>
+                  <div class="popup-row"><span class="popup-label">Source Dataset:</span><span class="popup-val">uttarakhand_river_4326.geojson</span></div>
+                </div>
+              `);
+            }
+          }).addTo(layerRivers);
+        })
+        .catch(err => console.error("Error loading rivers:", err));
+    }
+
+    // ========================================================================
+    // 4. LOAD GSI LANDSLIDE POINTS
+    // ========================================================================
+    function loadLandslides() {
+      layerLandslides.clearLayers();
+      if (activeState !== "Uttarakhand") return;
+      fetch("/gis/landslides?limit=2500")
+        .then(r => r.json())
+        .then(data => {
+          L.geoJSON(data, {
+            pointToLayer: (feat, latlng) => {
+              return L.circleMarker(latlng, {
+                radius: 4,
+                fillColor: "#c084fc",
+                color: "#7e22ce",
+                weight: 1,
+                opacity: 0.9,
+                fillOpacity: 0.75
+              });
+            },
+            onEachFeature: (feat, layer) => {
+              const p = feat.properties || {};
+              const sName = p.Slide_Name || p.Slide_No || "Verified GSI Landslide";
+              layer.bindPopup(`
+                <div class="popup-card">
+                  <div class="popup-header">
+                    <span class="popup-title">⛰️ ${sName}</span>
+                    <span class="popup-badge badge-orange">LANDSLIDE POINT</span>
+                  </div>
+                  <div class="popup-row"><span class="popup-label">Movement Type:</span><span class="popup-val">${p.Movement_Type || "Slide / Fall"}</span></div>
+                  <div class="popup-row"><span class="popup-label">Material Involved:</span><span class="popup-val">${p.Material_Involved || "Rock / Debris"}</span></div>
+                  <div class="popup-row"><span class="popup-label">Slide Number:</span><span class="popup-val">${p.Slide_No || "N/A"}</span></div>
+                  <div class="popup-row"><span class="popup-label">Source Dataset:</span><span class="popup-val">landslide.geojson (5,523 GSI Points)</span></div>
+                </div>
+              `);
+            }
+          }).addTo(layerLandslides);
+        })
+        .catch(err => console.error("Error loading landslides:", err));
+    }
+
+    // ========================================================================
+    // 5. LOAD EARTHQUAKES & RAINFALL
+    // ========================================================================
+    function loadEarthquakes() {
+      layerEarthquakes.clearLayers();
+      if (activeState !== "Uttarakhand") return;
+      fetch("/gis/earthquakes")
+        .then(r => r.json())
+        .then(data => {
+          L.geoJSON(data, {
+            pointToLayer: (feat, latlng) => {
+              const mag = feat.properties ? feat.properties.magnitude || 4.0 : 4.0;
+              return L.circleMarker(latlng, {
+                radius: Math.max(4, mag * 1.8),
+                fillColor: "#ec4899",
+                color: "#be185d",
+                weight: 1.5,
+                fillOpacity: 0.65
+              });
+            },
+            onEachFeature: (feat, layer) => {
+              const p = feat.properties || {};
+              layer.bindPopup(`
+                <div class="popup-card">
+                  <div class="popup-header">
+                    <span class="popup-title">⚡ Earthquake Epicenter</span>
+                    <span class="popup-badge badge-red">M ${p.magnitude}</span>
+                  </div>
+                  <div class="popup-row"><span class="popup-label">Event ID:</span><span class="popup-val">${p.earthquake_id}</span></div>
+                  <div class="popup-row"><span class="popup-label">Focal Depth:</span><span class="popup-val">${p.depth_km} km</span></div>
+                  <div class="popup-row"><span class="popup-label">Date:</span><span class="popup-val">${p.event_date || p.year}</span></div>
+                  <div class="popup-row"><span class="popup-label">Source:</span><span class="popup-val">uttarakhand_earthquakes.geojson</span></div>
+                </div>
+              `);
+            }
+          }).addTo(layerEarthquakes);
+        })
+        .catch(err => console.error("Error loading earthquakes:", err));
+    }
+
+    function loadRainfall() {
+      layerRainfall.clearLayers();
+      if (activeState !== "Uttarakhand") return;
+      fetch("/gis/rainfall")
+        .then(r => r.json())
+        .then(data => {
+          L.geoJSON(data, {
+            pointToLayer: (feat, latlng) => {
+              return L.circleMarker(latlng, {
+                radius: 4,
+                fillColor: "#06b6d4",
+                color: "#0891b2",
+                weight: 1,
+                fillOpacity: 0.7
+              });
+            },
+            onEachFeature: (feat, layer) => {
+              const p = feat.properties || {};
+              layer.bindPopup(`
+                <div class="popup-card">
+                  <div class="popup-header">
+                    <span class="popup-title">🌧️ Rainfall Station</span>
+                    <span class="popup-badge badge-blue">MET GAUGING</span>
+                  </div>
+                  <div class="popup-row"><span class="popup-label">Station ID:</span><span class="popup-val">${p.rainfall_id}</span></div>
+                  <div class="popup-row"><span class="popup-label">Annual Rainfall:</span><span class="popup-val">${p.annual_rainfall_mm} mm</span></div>
+                  <div class="popup-row"><span class="popup-label">Monsoon Rainfall:</span><span class="popup-val">${p.monsoon_jun_sep_mm} mm</span></div>
+                  <div class="popup-row"><span class="popup-label">Source:</span><span class="popup-val">uttarakhand_rainfall.geojson</span></div>
+                </div>
+              `);
+            }
+          }).addTo(layerRainfall);
+        })
+        .catch(err => console.error("Error loading rainfall:", err));
+    }
+
+    // ========================================================================
+    // 6. LOAD RELOCATION SHELTERS
+    // ========================================================================
+    function loadShelters() {
+      layerShelters.clearLayers();
+      fetch(`/gis/shelters?state=${activeState}`)
+        .then(r => r.json())
+        .then(data => {
+          L.geoJSON(data, {
+            pointToLayer: (feat, latlng) => {
+              const p = feat.properties || {};
+              shelterLookup[p.center_id] = {
+                center_id: p.center_id,
+                name: p.name,
+                lat: latlng.lat,
+                lng: latlng.lng,
+                capacity: p.available_capacity
+              };
+
+              return L.circleMarker(latlng, {
+                radius: 7,
+                fillColor: "#0288d1",
+                color: "#ffffff",
+                weight: 2,
+                opacity: 1.0,
+                fillOpacity: 0.95
+              });
+            },
+            onEachFeature: (feat, layer) => {
+              const p = feat.properties || {};
+              layer.bindTooltip(`🏠 ${p.name}`, { sticky: true });
+              layer.bindPopup(`
+                <div class="popup-card">
+                  <div class="popup-header">
+                    <span class="popup-title">🏠 ${p.name}</span>
+                    <span class="popup-badge badge-blue">${p.active ? 'ACTIVE' : 'STANDBY'}</span>
+                  </div>
+                  <div class="popup-row"><span class="popup-label">Shelter ID:</span><span class="popup-val">${p.center_id}</span></div>
+                  <div class="popup-row"><span class="popup-label">District:</span><span class="popup-val">${p.district}, ${p.state}</span></div>
+                  <div class="popup-row"><span class="popup-label">Available Capacity:</span><span class="popup-val" style="color:#4ade80;font-size:13px;">${p.available_capacity} / ${p.total_capacity} beds</span></div>
+                  <div class="popup-row"><span class="popup-label">Current Occupancy:</span><span class="popup-val">${p.current_occupancy}</span></div>
+                  <div class="popup-row"><span class="popup-label">Medical Support:</span><span class="popup-val">${p.medical_support ? '✅ Available' : '❌ None'}</span></div>
+                  <div class="popup-row"><span class="popup-label">Food & Water:</span><span class="popup-val">${p.food_available && p.water_available ? '✅ Stocked' : '⚠️ Partial'}</span></div>
+                  <div class="popup-row"><span class="popup-label">Sanitation:</span><span class="popup-val">${p.sanitation_available ? '✅ Equipped' : '❌ Limited'}</span></div>
+                  <div class="popup-row"><span class="popup-label">Disabled Access:</span><span class="popup-val">${p.accessible_for_disabled ? '♿ Wheelchair Ready' : '❌ Inaccessible'}</span></div>
+                </div>
+              `);
+            }
+          }).addTo(layerShelters);
+
+          document.getElementById("stat-shelters").textContent = `${data.features.length} Sites`;
+        })
+        .catch(err => console.error("Error loading shelters:", err));
+    }
+
+    // ========================================================================
+    // 7. LOAD REGISTERED HOUSEHOLDS WITH RISK & RELOCATION ROUTING
+    // ========================================================================
+    function loadHouseholds() {
+      layerHouseholds.clearLayers();
+      layerRouting.clearLayers();
+
+      fetch(`/gis/households?state=${activeState}`)
+        .then(r => r.json())
+        .then(data => {
+          let highRiskCount = 0;
+
+          L.geoJSON(data, {
+            pointToLayer: (feat, latlng) => {
+              const p = feat.properties || {};
+              const color = p.marker_color || "#fbc02d";
+              if (p.relocation_required) highRiskCount++;
+
+              return L.circleMarker(latlng, {
+                radius: 8,
+                fillColor: color,
+                color: "#ffffff",
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.95
+              });
+            },
+            onEachFeature: (feat, layer) => {
+              const p = feat.properties || {};
+              const badgeClass = p.risk_level === "RED" ? "badge-red" :
+                                 p.risk_level === "ORANGE" ? "badge-orange" :
+                                 p.risk_level === "YELLOW" ? "badge-yellow" : "badge-green";
+
+              layer.bindTooltip(`● ${p.household_id} (${p.village})`, { sticky: true });
+
+              layer.bindPopup(`
+                <div class="popup-card">
+                  <div class="popup-header">
+                    <span class="popup-title">● ${p.household_id}</span>
+                    <span class="popup-badge ${badgeClass}">${p.risk_level} RISK</span>
+                  </div>
+                  <div class="popup-row"><span class="popup-label">Location:</span><span class="popup-val">${p.village}, ${p.district}</span></div>
+                  <div class="popup-row"><span class="popup-label">Population:</span><span class="popup-val">${p.population} persons (Elderly: ${p.elderly}, Disabled: ${p.disabled})</span></div>
+                  <div class="popup-row"><span class="popup-label">Risk Score:</span><span class="popup-val" style="color:#f87171;font-size:13px;">${p.risk_score} / 100</span></div>
+                  <div class="popup-row"><span class="popup-label">Vulnerability:</span><span class="popup-val">${p.vulnerability_score} (${p.vulnerability_level})</span></div>
+                  <div class="popup-row"><span class="popup-label">Emergency Priority:</span><span class="popup-val">${p.priority_level}</span></div>
+                  <div class="popup-row"><span class="popup-label">Relocation Status:</span><span class="popup-val" style="color:${p.relocation_required ? '#f87171' : '#4ade80'};">${p.relocation_required ? '🚨 EVACUATION REQUIRED' : '✔️ IN-SITU MONITORING'}</span></div>
+
+                  <button class="route-btn" onclick="routeHouseholdToShelter('${p.household_id}', ${feat.geometry.coordinates[1]}, ${feat.geometry.coordinates[0]})">
+                    🚗 Route to Recommended Shelter
+                  </button>
+                </div>
+              `);
+            }
+          }).addTo(layerHouseholds);
+
+          document.getElementById("stat-households").textContent = data.features.length;
+          document.getElementById("stat-high-risk").textContent = `${highRiskCount} Evac Req`;
+        })
+        .catch(err => console.error("Error loading households:", err));
+    }
+
+    // ========================================================================
+    // 8. DYNAMIC EVACUATION ROUTING (Household -> Recommended Shelter)
+    // ========================================================================
+    window.routeHouseholdToShelter = function(householdId, hhLat, hhLon) {
+      layerRouting.clearLayers();
+
+      fetch(`/assessment/household/${householdId}`)
+        .then(r => r.json())
+        .then(data => {
+          const centers = data.recommended_centers || [];
+          if (!centers.length) {
+            alert(`No active relocation shelters with available capacity found for ${householdId}.`);
+            return;
+          }
+
+          const topShelter = centers[0];
+          const sObj = shelterLookup[topShelter.center_id];
+
+          // If coordinates not in cache, fallback
+          const sLat = sObj ? sObj.lat : hhLat + 0.05;
+          const sLon = sObj ? sObj.lng : hhLon + 0.05;
+
+          // Draw Evacuation Routing Polyline
+          const line = L.polyline([[hhLat, hhLon], [sLat, sLon]], {
+            color: "#f59e0b",
+            weight: 3.5,
+            opacity: 0.9,
+            dashArray: "8, 8",
+            lineCap: "round"
+          }).addTo(layerRouting);
+
+          line.bindPopup(`
+            <div class="popup-card">
+              <div class="popup-header">
+                <span class="popup-title">🚗 Evacuation Transit Route</span>
+                <span class="popup-badge badge-orange">${topShelter.suitability} SUITABILITY</span>
+              </div>
+              <div class="popup-row"><span class="popup-label">From:</span><span class="popup-val">${data.location.village}, ${data.location.district}</span></div>
+              <div class="popup-row"><span class="popup-label">To Shelter:</span><span class="popup-val">${topShelter.name}</span></div>
+              <div class="popup-row"><span class="popup-label">Great-Circle Distance:</span><span class="popup-val" style="color:#38bdf8;">${topShelter.distance_km} km</span></div>
+              <div class="popup-row"><span class="popup-label">Available Capacity:</span><span class="popup-val">${topShelter.available_capacity} beds</span></div>
+              <div class="popup-row"><span class="popup-label">Medical Ready:</span><span class="popup-val">${topShelter.medical_support ? 'Yes' : 'No'}</span></div>
+              <div class="popup-row"><span class="popup-label">Decision Plan:</span><span class="popup-val" style="font-size:11px;">${data.relocation_decision.decision}</span></div>
+            </div>
+          `).openPopup();
+
+          // Fit bounds to display both household and shelter smoothly
+          map.fitBounds([[hhLat, hhLon], [sLat, sLon]], { padding: [80, 80], maxZoom: 13, duration: 1.2 });
+        })
+        .catch(err => {
+          console.error("Routing error:", err);
+          alert("Error fetching recommended shelter routing.");
+        });
+    };
+
+    // ========================================================================
+    // 9. SWITCH STATE FUNCTION
+    // ========================================================================
+    function switchState(stateName) {
+      if (!STATE_CONFIG[stateName]) return;
+      activeState = stateName;
+
+      // Update button active styles
+      document.querySelectorAll(".state-btn").forEach(btn => btn.classList.remove("active"));
+      const btnId = `btn-${stateName.toLowerCase()}`;
+      const activeBtn = document.getElementById(btnId);
+      if (activeBtn) activeBtn.classList.add("active");
+
+      document.getElementById("stat-state").textContent = stateName;
+
+      // Camera fly-to
+      map.flyTo(STATE_CONFIG[stateName].center, STATE_CONFIG[stateName].zoom, { duration: 1.5 });
+
+      // Reload state data
+      loadShelters();
+      loadHouseholds();
+
+      if (stateName === "Uttarakhand") {
+        loadStateBoundary();
+        loadDistricts();
+        loadVillages();
+        loadRivers();
+        loadLandslides();
+        loadEarthquakes();
+        loadRainfall();
+      } else {
+        layerStateOutline.clearLayers();
+        layerDistricts.clearLayers();
+        layerVillages.clearLayers();
+        layerRivers.clearLayers();
+        layerLandslides.clearLayers();
+        layerEarthquakes.clearLayers();
+        layerRainfall.clearLayers();
+      }
+    }
+
+    // Initialize all layers on startup
+    loadStateBoundary();
+    loadDistricts();
+    loadVillages();
+    loadRivers();
+    loadLandslides();
+    loadEarthquakes();
+    loadRainfall();
+    loadShelters();
+    loadHouseholds();
+
+    console.log("Project AASRA GIS Map Engine fully loaded and active.");
+  </script>
+</body>
+</html>
