@@ -324,3 +324,24 @@ def get_emergency_services_geojson(
         "name": f"Uttarakhand_Emergency_{service_type.title()}",
         "features": features
     }
+
+
+@router.get("/india-country-boundary", summary="India National Boundary GeoJSON Layer")
+def get_india_country_boundary():
+    """Streams India's national country boundary polygon in WGS84 with crisp vector lines."""
+    p = _PROJECT_ROOT / "data" / "india_country_boundary.geojson"
+    if not p.exists():
+        raise HTTPException(status_code=404, detail="India country boundary file not found.")
+    with open(p, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+@router.get("/india-states", summary="India All States & UTs Boundaries GeoJSON Layer")
+def get_india_states_boundary():
+    """Streams all 35 Indian States and Union Territories boundary polygons in WGS84."""
+    p = _PROJECT_ROOT / "data" / "india_states_simplified.geojson"
+    if not p.exists():
+        raise HTTPException(status_code=404, detail="India states boundary file not found.")
+    with open(p, "r", encoding="utf-8") as f:
+        return json.load(f)
+

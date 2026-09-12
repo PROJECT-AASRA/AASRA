@@ -184,6 +184,9 @@
 
     <!-- Quick State Navigation -->
     <div class="state-nav">
+      <a href="/" class="state-btn" style="text-decoration:none; background:rgba(255,255,255,0.12); color:#f8fafc;" title="Back to Front Page">
+        <span>🏠 Front Page</span>
+      </a>
       <button class="state-btn active" id="btn-uttarakhand" onclick="switchState('Uttarakhand')">
         <span>Uttarakhand</span>
         <span class="state-badge active-pilot">Active Pilot</span>
@@ -280,11 +283,16 @@
 
     L.control.zoom({ position: "topleft" }).addTo(map);
 
-    // Base Tile Layers
-    const cartoDark = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://carto.com/">CARTO</a> & OpenStreetMap | Project AASRA'
-    }).addTo(map);
+    // Base Tile Layers (Esri World Dark Gray - No API Key, No Watermark)
+    const cartoDark = L.layerGroup([
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 16,
+        attribution: 'Tiles &copy; Esri &mdash; Project AASRA'
+      }),
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 16
+      })
+    ]).addTo(map);
 
     const osmStandard = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
@@ -918,6 +926,14 @@
     loadRainfall();
     loadShelters();
     loadHouseholds();
+
+    // Check URL query parameters passed from front page (?state=...&district=...)
+    const urlParams = new URLSearchParams(window.location.search);
+    const qState = urlParams.get("state");
+    const qDistrict = urlParams.get("district");
+    if (qState && STATE_CONFIG[qState]) {
+      switchState(qState);
+    }
 
     console.log("Project AASRA GIS Map Engine fully loaded and active.");
   </script>
